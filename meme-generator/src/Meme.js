@@ -1,4 +1,5 @@
 import React from 'react';
+import Textbox from './Textbox'
 
 const wrapperStyle = {
     borderStyle: 'solid',
@@ -13,12 +14,14 @@ const imageStyle = {
     width: '500px',
 }
 
+
 function Meme (props) {
 
     return (
             <div>
                 <div style={wrapperStyle}>
                     <img style={imageStyle} src={props.url} alt=""></img>
+                    <Textbox />
                 </div>
             </div>
     )
