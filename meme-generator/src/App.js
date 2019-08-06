@@ -1,25 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import Meme from './Meme';
+import axios from 'axios';
 
 function App() {
+
+  const [url, setUrl] = useState('https://i.imgflip.com/1ur9b0.jpg')
+  const [boxCount, setBoxCount] = useState(3)
+
+   function handleGetNewMeme() {
+    axios.get('https://api.imgflip.com/get_memes')
+    .then(function (response) {
+      return getNewMeme(response)
+    })
+    .catch(function(error) {
+        console.log(error)
+    })
+   }
+
+  function getNewMeme(response) {
+    let randomNumber = Math.floor((Math.random() * 100) + 1);
+    setUrl(response.data.data.memes[randomNumber].url)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+        <Meme url={url}/>
+        <button onClick={handleGetNewMeme}>Get Meme</button>
+    </React.Fragment>
   );
 }
 
