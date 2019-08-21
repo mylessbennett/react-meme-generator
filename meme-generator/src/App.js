@@ -7,6 +7,9 @@ function App() {
 
   const [url, setUrl] = useState('https://i.imgflip.com/1ur9b0.jpg')
   const [boxCount, setBoxCount] = useState(3)
+  const initialCaptions = [
+    
+  ]
 
    function handleGetNewMeme() {
     axios.get('https://api.imgflip.com/get_memes')
