@@ -1,33 +1,111 @@
-.App {
+body , * {
+  box-sizing: content-box;
+}
+
+body {
+  background-color: #ffffff;
+}
+
+.content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 5%;
+  max-width: 95%;
+  padding: 1.5rem;
+  margin: auto;
+}
+
+.site-header {
+  margin: 0 auto;
+  width: 100%;
+  grid-column: 1 / 3;
+  margin-bottom: 0.5rem;
+}
+
+.site-logo {
+  display: block;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.meme-wrapper {
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  height: 500px;
+  width: 100%;
+  grid-column: 1 / 2;
+}
+
+.meme-image {
+  height: 500px;
+  width: 100%;
+}
+
+.caption-input {
+  background-color: rgba(0,0,0,0.1);
+  color: red;
+  border: none;
+  height: 2.5rem;
+  font-size: 2rem;
+}
+
+.get-meme-btn {
+  grid-column: 1 / 2;
+  width: 200px;
+  height: 25px;
+  margin: 2% auto;
+}
+
+.input-wrapper {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  display: block;
+  margin: 0 auto;
+}
+
+.add-btn {
+  width: 200px;
+  height: 25px;
+  margin-right: 1.5rem;
+  background-color: green;
+  position: absolute;
+  bottom: 5%;
+}
+
+.del-btn {
+  width: 200px;
+  height: 25px;
+  background-color: red;
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+}
+
+ul > li > button {
+  display: block;
+  float: left;
+  margin-top: 5rem;
+}
+
+.caption-list {
+  background-color: #cccccc;
+  margin: 0 auto;
+  height: 100%;
+  list-style: none;
+  position: relative;
+}
+
+.caption-text {
+  display: inline-block;
+  color: #ffffff;
+  font-family: impact;
+  bottom: 250px;
+  left: 250px;
+}
+
+footer {
   text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  margin-top: 2.5rem;
+  padding: 1.5rem;
 }

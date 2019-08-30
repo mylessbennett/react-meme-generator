@@ -1,11 +1,5 @@
 import React, {useState} from 'react';
-import Draggable from 'react-draggable';
-
-const captionStyle = {
-    display: 'inline-block',
-    color: '#ffffff',
-    fontFamily: 'impact',
-}
+import { Rnd } from 'react-rnd';
 
 const inputStyle = {
     backgroundColor: 'rgba(0,0,0,0.1)',
@@ -13,22 +7,26 @@ const inputStyle = {
     border: 'none',
 }
 
-function Textbox(props) {
+function Textbox() {
 
     const [inputValue, setInputValue] = useState('')
 
     function handleOnChange(event) {
-        console.log(event.target.value)
         setInputValue(event.target.value)
-        console.log(inputValue)
     }
 
     return (
         <React.Fragment>
-            <Draggable bounds="parent">
-                <h3 style={captionStyle}>{inputValue}</h3>
-            </Draggable>
-            <input type='text' style={inputStyle} onChange={handleOnChange}></input>
+            <Rnd
+            bounds=".meme-wrapper"
+            default={{
+                x: -400,
+                y:250,
+            }}
+            >
+                <h3 className="caption-text">{inputValue}</h3>
+            </Rnd>
+            <input className="caption-input" type='text' style={inputStyle} onChange={handleOnChange}></input>
         </React.Fragment>
     )
 }

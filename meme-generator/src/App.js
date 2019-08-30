@@ -1,36 +1,20 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './App.css';
 import Meme from './Meme';
-import axios from 'axios';
+import logo from './img/logo.png';
 
 function App() {
 
-  const [url, setUrl] = useState('https://i.imgflip.com/1ur9b0.jpg')
-  const [boxCount, setBoxCount] = useState(3)
-  const initialCaptions = [
-    
-  ]
-
-   function handleGetNewMeme() {
-    axios.get('https://api.imgflip.com/get_memes')
-    .then(function (response) {
-      return getNewMeme(response)
-    })
-    .catch(function(error) {
-        console.log(error)
-    })
-   }
-
-  function getNewMeme(response) {
-    let randomNumber = Math.floor((Math.random() * 100) + 1);
-    setUrl(response.data.data.memes[randomNumber].url)
-  }
-
   return (
-    <React.Fragment>
-        <Meme url={url}/>
-        <button onClick={handleGetNewMeme}>Get Meme</button>
-    </React.Fragment>
+    <div className="site-wrapper">
+      <header className="site-header">
+        <img className="site-logo" src={logo} alt="site logo" />
+      </header>
+      <div className="content-wrapper">
+          <Meme />
+      </div>
+      <footer>2019 Myles Bennett</footer>
+    </div>
   );
 }
 

@@ -1,31 +1,33 @@
 import React, {useState} from 'react';
 import Textbox from './Textbox'
+import axios from 'axios';
 
-const wrapperStyle = {
-    borderStyle: 'solid',
-    borderColor: 'black',
-    borderWidth: '2px',
-    height: '500px',
-    width: '500px',
-}
-
-const imageStyle = {
-    height: '500px',
-    width: '500px',
-}
-
-
-
-function Meme (props) {
+function Meme () {
 
     const initialCaption = [
         {placeholder: 'test'},
-        {placeholder: 'test'},
     ]
-    
+
+    const [url, setUrl] = useState('https://i.imgflip.com/1ur9b0.jpg')
+
+    function handleGetNewMeme() {
+        axios.get('https://api.imgflip.com/get_memes')
+        .then(function (response) {
+            return getNewMeme(response)
+        })
+        .catch(function(error) {
+            console.log(error)
+        })
+    }
+
+    function getNewMeme(response) {
+        let randomNumber = Math.floor((Math.random() * 100) + 1);
+        setUrl(response.data.data.memes[randomNumber].url)
+    }
+
     const [captionArray, setCaptionArray] = useState(initialCaption)
 
-    const captionElements = captionArray.map((captionObj) => <Textbox key={captionArray.indexOf(captionObj)} captionArray={captionArray} />)
+    const captionElements = captionArray.map((captionObj) => <Textbox className="caption-input" key={captionArray.indexOf(captionObj)} captionArray={captionArray} />)
 
     function handleAddCaption() {
         setCaptionArray(() => [...captionArray, {placeholder: 'test'}]);
@@ -38,14 +40,19 @@ function Meme (props) {
     }
 
     return (
-            <div>
-                <div style={wrapperStyle}>
-                    <img style={imageStyle} src={props.url} alt=""></img>
-                    { captionElements }
-                    <button onClick={handleAddCaption}>Add Caption</button>  
-                    <button onClick={handleDeleteCaption}>Delete Caption</button>
+            <React.Fragment>
+                <div className="meme-wrapper">
+                    <img className="meme-image" src={url} alt=""></img>
+                    <button className="get-meme-btn" onClick={handleGetNewMeme}>Get Meme</button>
                 </div>
-            </div>
+                <div>
+                    <ul className="caption-list">
+                        <li>{ captionElements }</li>
+                        <li><button className="add-btn" onClick={handleAddCaption}>Add Caption</button></li>
+                        <li><button className="del-btn" onClick={handleDeleteCaption}>Delete Caption</button></li>
+                    </ul>
+                </div>
+            </React.Fragment>
     )
 }
 
