@@ -5,7 +5,7 @@ import axios from 'axios';
 function Meme () {
 
     const initialCaption = [
-        {placeholder: 'test'},
+        {placeholder: 'Input Caption'},
     ]
 
     const [url, setUrl] = useState('https://i.imgflip.com/1ur9b0.jpg')
@@ -31,7 +31,7 @@ function Meme () {
 
     function handleAddCaption() {
         if (captionArray.length < 3) {
-            setCaptionArray(() => [...captionArray, {placeholder: 'test'}]);
+            setCaptionArray(() => [...captionArray, {placeholder: 'Input Caption'}]);
         }
     }
 

@@ -13,7 +13,7 @@ function App() {
       <div className="content-wrapper">
           <Meme />
       </div>
-      <footer>2019 Myles Bennett</footer>
+      <footer>©2019 Myles Bennett</footer>
     </div>
   );
 }

@@ -1,12 +1,6 @@
 import React, {useState} from 'react';
 import { Rnd } from 'react-rnd';
 
-const inputStyle = {
-    backgroundColor: 'rgba(0,0,0,0.1)',
-    color: 'red',
-    border: 'none',
-}
-
 function Textbox() {
 
     const [inputValue, setInputValue] = useState('')
@@ -26,7 +20,7 @@ function Textbox() {
             >
                 <h3 className="caption-text">{inputValue}</h3>
             </Rnd>
-            <input className="caption-input" type='text' style={inputStyle} onChange={handleOnChange}></input>
+            <input className="caption-input" type='text' onChange={handleOnChange}></input>
         </React.Fragment>
     )
 }
