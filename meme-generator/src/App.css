@@ -29,9 +29,7 @@ body {
 }
 
 .meme-wrapper {
-  border-style: solid;
-  border-color: black;
-  border-width: 2px;
+  border: solid black 2px;
   height: 500px;
   width: 100%;
   grid-column: 1 / 2;
@@ -44,10 +42,11 @@ body {
 
 .caption-input {
   background-color: rgba(0,0,0,0.1);
-  color: red;
+  color: black;
   border: none;
   height: 2.5rem;
   font-size: 2rem;
+  margin: 2rem;
 }
 
 .get-meme-btn {
@@ -55,6 +54,7 @@ body {
   width: 200px;
   height: 25px;
   margin: 2% auto;
+  display: block;
 }
 
 .input-wrapper {
@@ -65,7 +65,7 @@ body {
 }
 
 .add-btn {
-  width: 200px;
+  width: 215px;
   height: 25px;
   margin-right: 1.5rem;
   background-color: green;
@@ -74,12 +74,30 @@ body {
 }
 
 .del-btn {
-  width: 200px;
+  width: 215px;
   height: 25px;
   background-color: red;
   position: absolute;
   bottom: 5%;
   right: 5%;
+}
+
+.change-clr-btn-blk {
+  height: 25px;
+  width: 25px;
+  background-color: #000000;
+  margin-right: 1.5rem;
+  position: absolute;
+  bottom: 15%;
+}
+
+.change-clr-btn-wht {
+  height: 25px;
+  width: 25px;
+  background-color: #ffffff;
+  position: absolute;
+  bottom: 15%;
+  right: 75%;
 }
 
 ul > li > button {
@@ -89,7 +107,8 @@ ul > li > button {
 }
 
 .caption-list {
-  background-color: #cccccc;
+  background-color: #EDEEF1;
+  border: solid #EDEEF1 2px;
   margin: 0 auto;
   height: 100%;
   list-style: none;
@@ -103,6 +122,14 @@ ul > li > button {
   bottom: 250px;
   left: 250px;
 }
+
+.caption-text-black {
+  display: inline-block;
+  color: #000000;
+  font-family: impact;
+  bottom: 250px;
+  left: 250px;
+  }
 
 footer {
   text-align: center;
